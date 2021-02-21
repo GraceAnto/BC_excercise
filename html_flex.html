@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <Style>
+        *{
+            Margin:0;
+            padding:0;
+        }
+        .container{
+
+display:flex;
+flex-direction: row-reverse;
+background: chocolate;
+}
+
+        }
+    .navbar {
+        list-style: none;
+        backgound: #6c4525;
+        border-radius: 5px;
+        overflow: auto;
+    }
+    
+header{
+    height:100vh;
+    background: rgb(211, 104, 104) url('https://images.unsplash.com/photo-1610916147297-50ee9bd838e8?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80') no-repeat center center/cover;
+    padding:1rem;
+    padding-top:0.5rem;
+
+}
+li{
+    list-style: none;
+    font-size: 20px;
+    line-height: 5rem;
+}
+    .navbar li {
+        float: left;
+    }
+
+    .navbar li a {
+
+        color: #fff;
+        text-decoration: none;
+        padding: 15px 20px;
+    }
+
+    .navbar li a:hover {
+
+        background-color: slateblue;
+        color: #fff;
+    }
+
+    .menu {
+        margin-top: 20px;
+        padding: 30px;
+
+        width:100px;
+        height:100px;
+        flex-direction: column;
+        font-size: larger;
+        font-weight: bolder;
+        color:darkblue
+            }
+            
+
+footer{
+    position: fixed;
+    text-align: center;
+
+}
+    
+</Style>
+</head>
+
+<body>
+ <Header>
+    <div class="container">
+    <ul class="navbar">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Blogs</a></li>
+    </ul>
+</div>
+
+    <div class="side.menu" >
+        <div id="menu-1" class="menu">Technology</div>
+        <div id="menu-2" class="menu">Source</div>
+            <div id="menu-3" class="menu">Sports</div>
+                <div id="menu-4" class="menu">Careers</div>
+                    <div id="menu-5" class="menu">FAQs</div>
+    
+</Header>
+<div class="footer">
+    <h2>Thank you for Visiting</h2>
+  </div>
+
+</body>

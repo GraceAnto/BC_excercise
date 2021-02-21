@@ -6,82 +6,130 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            margin: 500px;
+            padding: 15px;
+            background: rgb(58, 128, 156);
+            color: black;
+
+        }
+
+        .div {
+            display: block;
+        }
+
+        .checkmark .radio {
+            Display: flex;
+        }
+
+        .format1 {
+            padding: 100px;
+            border: 3px solid #444;
+            background: rgb(247, 246, 245);
+            line-height: 1.5rem;
+        }
+
+        .btn {
+            width: 10%;
+            display: block;
+            background: #595ce4;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            padding: 10px;
+            position: absolute;
+            text-align: center;
+            border-radius: 1px;
+            color: #fff;
+            cursor: pointer;
+
+        }
+
+        button:hover {
+
+            background: #a0bbc0;
+        }
+
+
+        }
+    </style>
 </head>
-<style>
-    .checkmark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 25px;
-  width: 25px;
-  background-color: #eee;
-}
-</style>
-<body style="text-align: center;">
-    <Div> Tell us something positive that happened to you today.</Div>
 
-    <br>
-
-    <form>
-        <div>
-            <label>Name </label>
-            <input type="text" placeholder="Enter your Name" , name="Name">
-        </div>
-        <br>
-        <div>
-            <label>Email </label>
-            <input type="email" placeholder="Enter your email address" name="Email">
-        </div>
-        <br>
-        <div>
-            <label>On a scale of 1-10, how good was it? </label>
-            <input type="scale" placeholder="Enter a number between 1-10" name="Scale">
-        </div>
+<body>
+    <div class="format1">
+        <Div style="font-size: 25px; font-weight: bolder; text-align: center;"> Tell us something positive that happened
+            to you today.</Div>
 
         <br>
 
-        <div>
-            <label>Where did it happen</label>
-            <select name "at home">
-                <option value="at home">Select at home</option>
-                <option value="sleeping">sleeping</option>
-                <option value="walking">walking</option>
+        <form>
+            <div>
+                <label>Name </label>
+                <input type="text" placeholder="Enter your Name" , name="Name">
+            </div>
+            <br>
+            <div>
+                <label>Email </label>
+                <input type="email" placeholder="Enter your email address" name="Email">
+            </div>
+            <br>
+            <div>
+                <label>On a scale of 1-10, how good was it? </label>
+                <input type="scale" placeholder="Enter a number between 1-10" name="Scale">
+            </div>
 
-            </select>
-        </div>
-        <div>
-            <label>At What time of day did it happen? </label>
+            <br>
 
-            <ul class="checkmark" style="list-style-type: none;">
-                <li><input type="radio" name="Morning" value="car">Morning</li>
-                <li><input type="radio" name="Afternoon" value="Van"> Afternoon</li>
-                <li><input type="radio" name="Evening" &nbsp; value="Tuk"> Evening</li>
-            </ul>
-            
-        </div>
-        <br>
-        <div>
-            <label>What emotions did you experience? (select all that apply) </label>
-            <ul style="list-style-type: none;">
-                <li><input type="checkbox" name="Excited" value="Excited">Excited</li>
-                <li><input type="checkbox" name="Humbled" value="Humbled">Humbled</li>
-                <li><input type="checkbox" name="Elated" value="Elated">Elated</li>
-                <li><input type="checkbox" name="Loved" value="Loved">Loved</li>
-                <li><input type="checkbox" name="Enthusiatic" value="Enthusiatic">Enthusiatic</li>
-            </ul>
-        </div>
-        <br>
-        <div>
-            <label>Please describe your positive experience.</label>
-            <textarea name"Instructions" rows="5" cols="50" placeholder="Enter your experience here...."></textarea>
-        </div>
+            <div>
+                <label>Where did it happen</label>
+                <select name "at home">
+                    <option value="at home">Select at home</option>
+                    <option value="sleeping">sleeping</option>
+                    <option value="walking">walking</option>
 
-        <br>
-        <div>
-            <button type="button" class="btn btn-info">Submit</button>
-        </div>
-    </form>
+                </select>
+            </div>
+            <div>
+                <label>At What time of day did it happen? </label>
 
+                <ul class="checkmark" style="list-style-type: none;">
+                    <li><input type="radio" name="Morning" value="car">Morning</li>
+                    <li><input type="radio" name="Afternoon" value="Van"> Afternoon</li>
+                    <li><input type="radio" name="Evening" &nbsp; value="Tuk"> Evening</li>
+                </ul>
+
+            </div>
+            <br>
+            <div>
+                <label>What emotions did you experience? (select all that apply) </label>
+                <ul class="radio" style="list-style-type: none;">
+                    <li><input type="checkbox" name="Excited" value="Excited">Excited</li>
+                    <li><input type="checkbox" name="Humbled" value="Humbled">Humbled</li>
+                    <li><input type="checkbox" name="Elated" value="Elated">Elated</li>
+                    <li><input type="checkbox" name="Loved" value="Loved">Loved</li>
+                    <li><input type="checkbox" name="Enthusiatic" value="Enthusiatic">Enthusiatic</li>
+                </ul>
+            </div>
+            <br>
+            <div>
+                <label>Please describe your positive experience.</label>
+                <textarea name"Instructions" rows="5" cols="50" placeholder="Enter your experience here...."></textarea>
+            </div>
+
+            <br>
+            <div>
+                <button type="button" class="btn">Submit</button>
+            </div>
+        </form>
+    </div>
 </body>
 
 </html>
