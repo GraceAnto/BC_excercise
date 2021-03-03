@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+    body{
+        line-height: 1.2;
+    }
+
+    .wrap {
+        width: 100%;
+        overflow: auto;
+    }
+
+    .fleft {
+        float: left;
+        width: 50%;
+        background: rgba(119, 153, 207, 0.815);
+        height: 500px;
+        padding-top: 20px;
+        text-align: center;
+        
+    }
+
+    .ltable {
+
+        float: right;
+        margin-right: 30%;
+
+
+    }
+
+    .rtable {
+        float: right;
+        margin-right: 50%;
+
+    }
+
+    .fright {
+        float: right;
+        background: rgba(119, 153, 207, 0.815);
+        height: auto;
+        width: 48%;
+        margin-left: 20px;
+    }
+
+    div.container2.visible {
+            display: block;
+        }
+
+        div.container2 {
+            display: none;
+        }
+
+    dd {
+            display: flex;
+            margin-inline-start: 40px;
+        }
+
+        output.fail {
+            color: red;
+        }
+
+        output.pass {
+            color: green;
+        }
+</style>
+
+<script>
+    function submitForm() {
+        document.getElementById('datarev').className = 'container2 visible';
+
+        document.getElementById('ofName').innerHTML = document.getElementById('fname').value;
+
+        document.getElementById('olname').innerHTML = document.getElementById('lname').value;
+
+        document.getElementById("ossn").innerHTML = document.getElementById('ssn').value;
+
+        document.getElementById('oaddr').innerHTML = document.getElementById('address').value;
+
+        document.getElementById('ocity').innerHTML = document.getElementById('city').value;
+
+        document.getElementById('ostate').innerHTML = document.getElementById('state').value;
+
+        document.getElementById('ophn').innerHTML = document.getElementById('phone').value;
+
+        document.getElementById('oemail').innerHTML = document.getElementById('email').value;
+
+
+        var ssn = document.getElementById('ssn').value
+
+        var length = ssn.length;
+
+        var lastNumber = ssn[length - 1];
+
+        /*alert(lastNumber);*/
+
+        if (lastNumber % 2 == 0)
+            alert('fail');
+        else
+            alert('pass');
+       
+
+        var idmail = document.getElementById('email').value;
+
+        return validateEmail(idmail)
+    }
+    function validateEmail(sEmail) {
+        var reEmail = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
+
+        if (!sEmail.match(reEmail)) {
+            /*alert("Invalid email address");*/
+            document.getElementById('oemail').className = 'fail';
+            alert('invalid email');
+            
+        } else {
+            document.getElementById('oemail').className = 'pass';
+        }
+
+        return false;
+
+    }
+
+    var data = [
+  {
+    'First Name': 'John', 'Last Name': 'Doe', 'email': 'john@gmail.com','Phone':1234567891, 'Address':'123 Main St', 'State':'MD', 'SSN':'1235479564'
+  },
+{
+    'First Name': 'Paul', 'Last Name': 'Debecker', 'email': 'pauldeb@gmail.com','Phone':9876543291, 'Address':'51 West St', 'State':'MD', 'SSN':'7489546121'
+  },
+  {
+    'First Name': 'Sam', 'Last Name': 'Anderson', 'email': 'samad@gmail.com','Phone':7741544522, 'Address':'121 East St', 'State':'MD', 'SSN':'458768641'
+  },
+  {
+    'First Name': 'Tay', 'Last Name': 'Green', 'email': 'taygre@gmail.com','Phone':9784514264, 'Address':'784 north St', 'State':'CA', 'SSN':'45757484'
+  }
+];  
+$(document).ready(function () {
+    var html = '<table class="table table-striped">';
+    html += '<tr>';
+    var flag = 0;
+    $.each(data[0], function(index, value){
+        html += '<th>'+index+'</th>';
+        
+    });
+    html += '</tr>';
+     $.each(data, function(index, value){
+         html += '<tr>';
+
+        $.each(value, function(index2, value2){
+            html += '<td>'+value2+'</td>';
+        });
+        html += '<tr>';
+     });
+     html += '</table>';
+     $('body').html(html);
+ }
+     );
+</script>
+
+<body>
+    <form>
+
+        <div class="fleft">
+            <div class="ltable">
+                <table>
+                    <tr>
+                        <td>
+                            <label>First Name:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="fname" id="fname">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label>Last Name:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="lname" id="lname">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>SSN:</label>
+                        </td>
+                        <td>
+                            <input type="number" name="ssn" id="ssn">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Address:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="address" id="address">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>City:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="city" id="city">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>State:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="state" id="state">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Phone:</label>
+                        </td>
+                        <td>
+                            <input type="number" name="phone" id="phone">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>Email</label>
+                        </td>
+                        <td>
+                            <input type="text" name="email" id="email">
+                        </td>
+                    </tr>
+                </table>
+                <button class="btn" type="submit" onclick="return submitForm()"> Verify</button>
+            </div>
+        </div>
+
+        <div class="fright">
+            <div class="container2" id="datarev">
+                <dl>
+                    <dt> <output id="ofName" name="ofName"> </output></dt>
+                    <dd>This is the First Name</dd>
+                    <br>
+                    <dt><output id="olname"> </output></dt>
+                    <dd>This is the Last Name</dd>
+                    <br>
+                    <dt>
+                        <output id="ossn"> </output>
+                    </dt>
+                    <dd>This is the SSN #</dd>
+                    <br>
+                    <dt><output id="oaddr"> </output> </dt>
+                    <dd>This is the Address</dd>
+                    <br>
+                    <dt> <output id="ocity"> </output> </dt>
+                    <dd>This is the City</dd>
+                    <br>
+                    <dt> <output id="ostate"> </output> </dt>
+                    <dd>This is the state</dd><br>
+                    <dt> <output id="ophn"> </output> </dt>
+                    <dd>This is the contact number</dd>
+                    <br>
+                    <dt> <output id="oemail"> </output> </dt>
+                    <dd>This is the Email ID</dd>
+                    <br>
+                </dl>
+
+            </div>
+
+    </form>
+
+
+</body>
+
+</html>

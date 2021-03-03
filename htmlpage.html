@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container1 {
+            padding-top: 10px;
+            position: relative;
+            width: 50%;
+            border-color: rgb(212, 86, 164);
+            border-style: dotted;
+            background: #7b94d8;
+
+            float: left;
+
+        }
+
+
+        .container2 {
+            padding-top: 10px;
+            position: relative;
+            width: 50%;
+            height: 100%;
+            Float: right;
+            border-color: rgb(8, 10, 2);
+            border-style: dotted;
+            background: #7b94d8;
+
+        }
+
+        /*Padding: 35px;
+        float: left;
+         padding: 1em 16px;
+        */
+
+        body {
+
+            background: #d3d5d8;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #FFF;
+            Line-height: 1.2;
+        }
+
+        header {
+            padding-top: 20px;
+            padding-bottom: 5px;
+            text-align: center;
+            font-size: 30px;
+            color: navy
+        }
+
+        label {
+
+            display: flex;
+            color: rgb(8, 27, 8);
+            flex-direction: row;
+        }
+
+        .input1 {
+            padding: 5px;
+            display: flex;
+            border: palegoldenrod;
+            flex-direction: row;
+
+        }
+
+        .inp_form {
+            padding-left: 25%;
+        }
+
+        dd {
+            display: flex;
+            margin-inline-start: 40px;
+        }
+
+        output.fail {
+            color: red;
+        }
+
+        output.pass {
+            color: green;
+        }
+
+        div.container2.visible {
+            display: block;
+        }
+
+        div.container2 {
+            display: none;
+        }
+
+        .formtable {
+            padding-top: 15px;
+            border-collapse: separate;
+            align-content: center;
+            border-spacing: 1px;
+            color: black;
+        }
+
+        .formtable th {
+            font-weight: bolder;
+            color: rgb(17, 29, 5);
+            border: 1px solid black;
+
+        }
+    </style>
+
+</head>
+
+<script type="text/javascript">
+
+    function populateform(myObj) {
+        document.getElementById("ifName").value = myObj.firstName;
+    }
+    function verifyform() {
+
+        document.getElementById('datarev').className = 'container2 visible';
+        /* console.log(document.getElementById("Issn").value)
+        alert("Hello! I am an alert box!");*/
+        document.getElementById("ofName").innerHTML = document.getElementById("ifName").value;
+        document.getElementById("olname").innerHTML = document.getElementById("ilname").value;
+        document.getElementById("ossn").innerHTML = document.getElementById("issn").value;
+        document.getElementById("oaddr").innerHTML = document.getElementById("iaddr").value;
+        document.getElementById("ocity").innerHTML = document.getElementById("icity").value;
+        document.getElementById("ostate").innerHTML = document.getElementById("istate").value;
+        document.getElementById("ophn").innerHTML = document.getElementById("iphn").value;
+        document.getElementById("oemail").innerHTML = document.getElementById("iemail").value;
+
+        var ssn = document.getElementById('issn').value;
+        if (ssn % 2 == 0)
+            alert("true");
+        else
+            alert("False");
+
+        var idmail = document.getElementById('iemail').value;
+
+        return validateEmail(idmail)
+
+    }
+
+    function validateEmail(sEmail) {
+        var reEmail = /^(?:[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+\.)*[\w\!\#\$\%\&\'\*\+\-\/\=\?\^\`\{\|\}\~]+@(?:(?:(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!\.)){0,61}[a-zA-Z0-9]?\.)+[a-zA-Z0-9](?:[a-zA-Z0-9\-](?!$)){0,61}[a-zA-Z0-9]?)|(?:\[(?:(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d{1,2}|2[0-4]\d|25[0-5])\]))$/;
+
+        if (!sEmail.match(reEmail)) {
+            /*alert("Invalid email address");*/
+            document.getElementById('oemail').className = 'fail';
+
+        } else {
+            document.getElementById('oemail').className = 'pass';
+        }
+
+        return false;
+
+    }
+    function initializeTable() {
+
+        var i;
+
+        const myObj = [
+            { firstName: 'John', lastName: 'Doe', ssn: '1234647', addre: '123 st', city: 'SA', state: 'TX', phone: '45476467', email: 'john@johndoe.com' },
+            { firstName: 'Jane', lastName: 'Doe', ssn: '1234647', addre: '123 st', city: 'SA', state: 'TX', phone: '124536', email: 'jane@janedoe.com' }
+        ]
+
+        var x = "<table name='info' class='formtable'>"
+        x += "<tr><th>First Name</th><th>Last Name</th><th>SSN</th><th>Address</th><th>City</th><th>State</th><th>Phone</th><th>Email ID</th><th>Action</th></tr>"
+
+
+        for (i = 0; i < myObj.length; i++) {
+            x += "<tr><td>" + myObj[i].firstName + "</td><td>" + myObj[i].lastName + "</td><td>" + myObj[i].ssn + "</td><td>" + myObj[i].addre + "</td><td>" + myObj[i].city + "</td><td>" + myObj[i].state + "</td><td>" + myObj[i].phone + "</td><td>" + myObj[i].email + "</td><td><button type='submit' onclick= 'return populateform(" + myObj[i] + ")'>Populate</button></td></tr>";
+
+        }
+        x += "</table>"
+        document.getElementById("infotable").innerHTML = x;
+
+
+    }
+
+</script>
+
+<body>
+    <header>
+        FORM
+    </header>
+    <div>
+        <form class="container1">
+            <div class="inp_form">
+                <label>First Name </label>
+                <input Class="input1" id="ifName" type="text" placeholder="Enter your First Name" name="fName">
+                <br>
+                <label>Last Name </label>
+                <input class="input1" id="ilname" type="text" placeholder="Enter your Last Name" name="LName">
+                <br>
+                <label>SSN No# . </label>
+                <input class="input1" id="issn" type="number" placeholder="Enter your SSN" name="ssn"><br>
+                <label>Address</label>
+                <input class="input1" id="iaddr" type="text" placeholder="Enter your Address" name="Address"> <br>
+
+                <label>City </label>
+                <input class="input1" id="icity" type="text" placeholder="Enter City" name="City"> <br>
+                <label>State </label>
+                <input class="input1" id="istate" type="text" placeholder="Enter State" name="State">
+                <br>
+                <label>Phone </label>
+                <input class="input1" id="iphn" type="number" placeholder="Enter Phone" name="Phn">
+                <br>
+                <label>Email </label>
+                <input class="input1" id="iemail" type="text" placeholder="Enter Email" name="Email">
+                <br>
+                <button type="submit" onclick="return verifyform()">
+                    Verify
+                </button>
+            </div>
+            <br>
+        </form>
+
+        <div class="container2" id="datarev">
+
+            <dl>
+                <dt> <output id="ofName" name="ofName"> </output></dt>
+                <dd>This is the First Name</dd>
+                <br>
+                <dt><output id="olname"> </output></dt>
+                <dd>This is the Last Name</dd>
+                <br>
+                <dt>
+                    <output id="ossn"> </output>
+                </dt>
+                <dd>This is the SSN #</dd>
+                <br>
+                <dt><output id="oaddr"> </output> </dt>
+                <dd>This is the Address</dd>
+                <br>
+                <dt> <output id="ocity"> </output> </dt>
+                <dd>This is the City</dd>
+                <br>
+                <dt> <output id="ostate"> </output> </dt>
+                <dd>This is the state</dd><br>
+                <dt> <output id="ophn"> </output> </dt>
+                <dd>This is the contact number</dd>
+                <br>
+                <dt> <output id="oemail"> </output> </dt>
+                <dd>This is the Email ID</dd>
+                <br>
+            </dl>
+        </div>
+        <br>
+
+        <div id="infotable">
+
+        </div>
+    </div>
+
+</body>
+<script>
+    initializeTable();
+</script>
+
+</html>
