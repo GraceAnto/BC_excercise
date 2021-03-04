@@ -84,6 +84,14 @@
             margin-inline-start: 40px;
         }
 
+        dt{
+            color:black;
+        }
+
+        dl{
+            color:rgb(51, 19, 141);
+        }
+
         output.fail {
             color: red;
         }
@@ -122,7 +130,16 @@
 
     function populateform(myObj) {
         document.getElementById("ifName").value = myObj.firstName;
+        document.getElementById("ilname").value = myObj.lastName;
+        document.getElementById("issn").value = myObj.ssn;
+        document.getElementById("iaddr").value = myObj.addre;
+        document.getElementById("icity").value = myObj.city;
+        document.getElementById("istate").value = myObj.state;
+        document.getElementById("iphn").value = myObj.phone;
+        document.getElementById("iemail").value = myObj.email;
+        return false;
     }
+
     function verifyform() {
 
         document.getElementById('datarev').className = 'container2 visible';
@@ -169,7 +186,11 @@
 
         const myObj = [
             { firstName: 'John', lastName: 'Doe', ssn: '1234647', addre: '123 st', city: 'SA', state: 'TX', phone: '45476467', email: 'john@johndoe.com' },
-            { firstName: 'Jane', lastName: 'Doe', ssn: '1234647', addre: '123 st', city: 'SA', state: 'TX', phone: '124536', email: 'jane@janedoe.com' }
+            { firstName: 'Jane', lastName: 'De', ssn: '54546', addre: '24 st', city: 'la', state: 'TT', phone: '124536', email: 'jane@janedoe.com' },
+            { firstName: 'JJ', lastName: 'kk', ssn: '566687', addre: '258 st', city: 'gg', state: 'ee', phone: '572546', email: 'jjohndoe.com' },
+            { firstName: 'Jane', lastName: 'De', ssn: '54546', addre: '24 st', city: 'la', state: 'TT', phone: '124536', email: 'jane@janedoe.com' },
+            { firstName: 'John', lastName: 'Doe', ssn: '1234647', addre: '123 st', city: 'SA', state: 'TX', phone: '45476467', email: 'john@johndoe.com' },
+            { firstName: 'Jane', lastName: 'De', ssn: '54546', addre: '24 st', city: 'la', state: 'TT', phone: '124536', email: 'jane@janedoe.com' }
         ]
 
         var x = "<table name='info' class='formtable'>"
@@ -177,7 +198,7 @@
 
 
         for (i = 0; i < myObj.length; i++) {
-            x += "<tr><td>" + myObj[i].firstName + "</td><td>" + myObj[i].lastName + "</td><td>" + myObj[i].ssn + "</td><td>" + myObj[i].addre + "</td><td>" + myObj[i].city + "</td><td>" + myObj[i].state + "</td><td>" + myObj[i].phone + "</td><td>" + myObj[i].email + "</td><td><button type='submit' onclick= 'return populateform(" + myObj[i] + ")'>Populate</button></td></tr>";
+            x += "<tr><td>" + myObj[i].firstName + "</td><td>" + myObj[i].lastName + "</td><td>" + myObj[i].ssn + "</td><td>" + myObj[i].addre + "</td><td>" + myObj[i].city + "</td><td>" + myObj[i].state + "</td><td>" + myObj[i].phone + "</td><td>" + myObj[i].email + "</td><td><button type='submit' onclick= 'return populateform(" + JSON.stringify(myObj[i]) + ")'>Populate</button></td></tr>";
 
         }
         x += "</table>"
@@ -252,18 +273,21 @@
                 <dt> <output id="oemail"> </output> </dt>
                 <dd>This is the Email ID</dd>
                 <br>
+                               <br>
+
             </dl>
         </div>
+        
         <br>
 
         <div id="infotable">
 
         </div>
     </div>
-
+    <script>
+        initializeTable();  
+    </script>
 </body>
-<script>
-    initializeTable();
-</script>
+
 
 </html>
